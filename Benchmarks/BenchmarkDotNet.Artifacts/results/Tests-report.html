@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Tests</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.10.14, OS=Windows 10.0.17134
+Intel Core i7-7700HQ CPU 2.80GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=2.1.300-preview2-008533
+  [Host]     : .NET Core 2.0.7 (CoreCLR 4.6.26328.01, CoreFX 4.6.26403.03), 64bit RyuJIT
+  Job-BDNANP : .NET Core 2.0.7 (CoreCLR 4.6.26328.01, CoreFX 4.6.26403.03), 64bit RyuJIT
+</code></pre>
+<pre><code>LaunchCount=10  
+</code></pre>
+
+<table>
+<thead><tr><th>                     Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th>
+</tr>
+</thead><tbody><tr><td>CommaDelimiterStringAddition</td><td>40.06 ns</td><td>0.2581 ns</td><td>0.9385 ns</td><td>39.84 ns</td><td>4</td>
+</tr><tr><td>CommaDelimiterStringBuilder</td><td>60.78 ns</td><td>0.3063 ns</td><td>1.0939 ns</td><td>60.59 ns</td><td>6</td>
+</tr><tr><td>CommaDelimiterStringConcat</td><td>39.58 ns</td><td>0.1324 ns</td><td>0.4780 ns</td><td>39.54 ns</td><td>3</td>
+</tr><tr><td>CommaDelimiterStringInterpolation</td><td>143.17 ns</td><td>0.5708 ns</td><td>2.0532 ns</td><td>142.92 ns</td><td>10</td>
+</tr><tr><td>CommaDelimiterStringJoin</td><td>65.33 ns</td><td>0.2203 ns</td><td>0.7723 ns</td><td>65.23 ns</td><td>7</td>
+</tr><tr><td>NoDelimiterStringAddition</td><td>32.30 ns</td><td>0.1614 ns</td><td>0.5868 ns</td><td>32.21 ns</td><td>2</td>
+</tr><tr><td>NoDelimiterStringBuilder</td><td>56.54 ns</td><td>0.2414 ns</td><td>0.8808 ns</td><td>56.47 ns</td><td>5</td>
+</tr><tr><td>NoDelimiterStringConcat</td><td>32.13 ns</td><td>0.0946 ns</td><td>0.3429 ns</td><td>32.08 ns</td><td>1</td>
+</tr><tr><td>NoDelimiterStringInterpolation</td><td>138.37 ns</td><td>0.5443 ns</td><td>1.9650 ns</td><td>137.94 ns</td><td>9</td>
+</tr><tr><td>NoDelimiterStringJoin</td><td>69.30 ns</td><td>0.2323 ns</td><td>0.8326 ns</td><td>69.20 ns</td><td>8</td>
+</tr></tbody></table>
+</body>
+</html>

@@ -49,7 +49,7 @@ namespace Benchmarks
     {
         static void Main(string[] args)
         {
-            //var summary = BenchmarkRunner.Run<Tests>();
+            var summary = BenchmarkRunner.Run<Tests>();
             var dataTable = File.ReadAllLines(Path.Combine(Environment.CurrentDirectory, "BenchmarkDotNet.Artifacts", "results", "Tests-report-github.md"));
             var readme = new StringBuilder()
                 .Append("# String concatenation benchmarks")
